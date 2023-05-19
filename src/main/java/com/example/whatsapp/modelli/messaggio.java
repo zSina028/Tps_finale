@@ -1,5 +1,6 @@
 package com.example.whatsapp.modelli;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,9 +11,12 @@ public class messaggio {
     private int id_messaggio;
     private String testo;
     private String data;
-    private String mittente;
+    @OneToOne
+    @JoinColumn(name = "mittente")
+    private utente mittente;
     @ManyToOne
     @JoinColumn(name = "id_chat")
+    @JsonIgnore
     private chat chat;
 
     public int getId_messaggio() {
@@ -39,11 +43,11 @@ public class messaggio {
         this.data = data;
     }
 
-    public String getMittente() {
+    public utente getMittente() {
         return mittente;
     }
 
-    public void setMittente(String mittente) {
+    public void setMittente(utente mittente) {
         this.mittente = mittente;
     }
 

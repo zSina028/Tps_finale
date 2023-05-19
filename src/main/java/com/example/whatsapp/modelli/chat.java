@@ -10,21 +10,23 @@ import java.util.List;
 public class chat {
     @Id
     @GeneratedValue
-    private int id;
+    private int id_chat;
     private String nome_chat;
     private String tipo_chat;
     @OneToMany(mappedBy = "chat")
     private List<messaggio> messaggi;
     @ManyToMany
-    @JoinTable(name = "chatutente")
+    @JoinTable(name = "chatutente",
+                joinColumns = {@JoinColumn(name = "id_chat")},
+                inverseJoinColumns = {@JoinColumn(name = "id_utente")})
     private List<utente> utenti;
 
-    public int getId() {
-        return id;
+    public int getId_chat() {
+        return id_chat;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_chat(int id_chat) {
+        this.id_chat = id_chat;
     }
 
     public String getNome_chat() {

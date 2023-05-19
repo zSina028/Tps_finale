@@ -13,7 +13,7 @@ public class chatService {
     @Autowired
     private chatRepository chatRepository;
 
-    public List<chat> getchats(){
-        return new ArrayList<>();
+    public List<chat> getchats(String numeroUtente){
+        return new ArrayList<>(chatRepository.trovaChatByTelefono(numeroUtente));
     }
 }
