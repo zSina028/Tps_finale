@@ -5,8 +5,13 @@ import com.example.whatsapp.repository.chatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.fasterxml.jackson.databind.type.LogicalType.DateTime;
 
 @Service
 public class chatService {
@@ -26,7 +31,9 @@ public class chatService {
     public void salvaMessaggio(messaggioDTO contenuto){
         messaggio temporaneo = new messaggio();
         temporaneo.setTesto(contenuto.getTesto());
-        temporaneo.setData(contenuto.getData());
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+        temporaneo.setData(dateFormat.format(date));
         utente u = utenteService.getUtente(contenuto.getMittente());
         temporaneo.setMittente(u);
         chat c = getChat(contenuto.getChat());

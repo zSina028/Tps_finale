@@ -28,4 +28,9 @@ public class chatController {
     public void aggiungiChat(@RequestBody chatDTO contenuto){
         chatService.salvaChat(contenuto);
     }
+
+    @GetMapping("/chat/{numeroUtente}/{id_chat}")
+    public chat getChat(@PathVariable String numeroUtente, @PathVariable int id_chat){
+        return chatService.getChat(id_chat);
+    }
 }

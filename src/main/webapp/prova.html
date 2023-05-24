@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel = "stylesheet" href = "stileProva.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+        <script src = "scriptProva.js"> </script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
+
+    <body>
+    <div class = "contenitore">
+        <div class = "sfondo">
+            <div class = "temp">
+                <form class = "contenitoreLogin" onsubmit = "return false" id = "log">
+                    <p><b>Login</b></p>
+                    <input type = "text" class = "telefono" placeholder = "Numero di telefono" required name = "numero_tel">
+                    <button type = "submit"><b>Login</b></button>
+                </form>
+
+                <form class = "contenitoreLogin hidden" onsubmit = "return false" id = "crea_chat">
+                    <p><b>Crea chat</b></p>
+                    <input type = "text" class = "telefono" placeholder = "Numero di telefono" required name = "numero_tel">
+                    <button type = "submit"><b>Crea</b></button>
+                </form>
+
+                <div class = "elencoChat hidden" id = "elenco_chat">
+                    <div class = "header">
+                        <p>Chat</p>
+                        <button id = "crea" class = "material-symbols-outlined">add</button>
+                    </div>
+                    <div class = "contChat">
+                    </div>
+                </div>
+                <div class = "tutto hidden" id = "singola_chat">
+                    <div class = "header">
+                        <button id = "back" class = "material-symbols-outlined">reply</button>
+                        <img src = "image/alieni.jpg" class = "immagine_chat">
+                        <p id = "persona">Persona 1</p>
+                    </div>
+                    <div class = "contMess">
+                    </div>
+                    <form class = "footer" onsubmit = "return false" id = "form">
+                        <input type = "text" placeholder = "Scrivi un messaggio" name = "scrivi">
+                        <button type = "submit" class = "material-symbols-outlined">send</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </body>
+</html>
