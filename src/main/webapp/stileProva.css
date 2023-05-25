@@ -97,12 +97,6 @@ body{
     margin-left: 50px;
 }
 
-.immagine_chat{
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-}
-
 .header{
     display: flex;
     flex-direction: row;

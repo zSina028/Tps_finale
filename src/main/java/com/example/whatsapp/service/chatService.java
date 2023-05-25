@@ -48,8 +48,13 @@ public class chatService {
         temporaneo.setTipo_chat(contenuto.getTipo_chat());
         for(int i=0; i<contenuto.getUtenti().size(); i++){
             utente u = utenteService.getUtente(contenuto.getUtenti().get(i));
-            temporaneo.getUtenti().add(u);
+            if(u != null)
+            {
+                temporaneo.getUtenti().add(u);
+            }
         }
-        chatRepository.save(temporaneo);
+        if(temporaneo.getUtenti().size()>1){
+            chatRepository.save(temporaneo);
+        }
     }
 }
